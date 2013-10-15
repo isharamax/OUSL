@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2013 6:54:20 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="ousl_duty_roster" name="org.dutyroster.hibernate.database.PreOrientationAlertHistory" table="pre_orientation_alert_history">
+    <composite-id class="org.dutyroster.hibernate.database.PreOrientationAlertHistoryId" name="id">
+      <key-property name="staffId" type="short">
+        <column name="STAFF_ID"/>
+      </key-property>
+      <key-property name="preId" type="short">
+        <column name="PRE_ID"/>
+      </key-property>
+      <key-property name="alertId" type="short">
+        <column name="ALERT_ID"/>
+      </key-property>
+    </composite-id>
+    <property name="date" type="date">
+      <column length="10" name="DATE" not-null="true"/>
+    </property>
+    <property name="sendingStatus" type="java.lang.Short">
+      <column name="SENDING_STATUS"/>
+    </property>
+  </class>
+</hibernate-mapping>

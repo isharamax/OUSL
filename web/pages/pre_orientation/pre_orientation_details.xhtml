@@ -1,0 +1,213 @@
+<ui:composition template="/WEB-INF/templates/master_template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:outputScript library="javascript/pre_orientation" name="pre_orientation.js"/>
+    <ui:define name="title">
+        Pre Orientation Details
+    </ui:define>
+    <ui:define name="main_content">
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_rounded-corners">
+                <tr>
+                    <td height="50" colspan="3" class="header_bg">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <span class="txt_tahoma_14_black">&#160;
+                            <strong>Pre-Orientation&#160;&#0187;&#160; Details</strong>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="2%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="97%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="1%" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7"><form id="form1" name="form1" method="post" action="">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="20%">&#160;</td>
+                                    <td width="3%">&#160;</td>
+                                    <td width="37%">&#160;</td>
+                                    <td width="20%" bgcolor="#FF0000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Current Level</td>
+                                    <td width="20%" bgcolor="#FF0000">&#160;Average&#160;Point Level</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td><input type="text" name="textfield" id="textfield" /></td>
+                                    <td><input type="text" name="textfield2" id="textfield2" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Staff No</td>
+                                    <td>:</td>
+                                    <td><input type="text" name="textfield4" id="textfield4" /></td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Name</td>
+                                    <td>:</td>
+                                    <td><input type="text" name="textfield7" id="textfield7" /></td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="txt_tahoma_12_black">Department</span></td>
+                                    <td>:</td>
+                                    <td><input type="text" name="textfield3" id="textfield3" /></td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Attended Program</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td><select name="select" id="select">
+                                            <option>--------------------------------</option>
+                                            <option>Sample 1</option>
+                                            <option>Sample 2</option>
+                                        </select></td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Attended Centre</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td><select name="select4" id="select4">
+                                            <option>--------------------------------</option>
+                                            <option>Sample 1</option>
+                                            <option>Sample 2</option>
+                                        </select></td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Attended Date</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td><select name="select3" id="select3">
+                                            <option>--------------------------------</option>
+                                            <option>Sample 1</option>
+                                            <option>Sample 2</option>
+                                        </select></td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="txt_tahoma_12_black">&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Attended Session</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td><select name="select2" id="select2">
+                                            <option>--------------------------------</option>
+                                            <option>Sample 1</option>
+                                            <option>Sample 2</option>
+                                        </select></td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td>&#160;</td>
+                                                <td class="blue-button"><div align="center">New</div></td>
+                                                <td><div align="center"></div></td>
+                                                <td class="blue-button"><div align="center">Edit</div></td>
+                                                <td><div align="center"></div></td>
+                                                <td class="blue-button"><div align="center">Submit</div></td>
+                                                <td><div align="center"></div></td>
+                                                <td class="blue-button"><div align="center">Delete</div></td>
+                                                <td>&#160;</td>
+                                            </tr>
+                                        </table></td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                            </table>
+                        </form>
+                    </td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td colspan="3" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+            </table>
+        </td>
+    </ui:define>
+</ui:composition>

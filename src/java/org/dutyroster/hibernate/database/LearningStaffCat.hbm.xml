@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2013 6:54:20 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="ousl_duty_roster" name="org.dutyroster.hibernate.database.LearningStaffCat" table="learning_staff_cat">
+    <composite-id class="org.dutyroster.hibernate.database.LearningStaffCatId" name="id">
+      <key-property name="lerId" type="short">
+        <column name="LER_ID"/>
+      </key-property>
+      <key-property name="staffCatId" type="short">
+        <column name="STAFF_CAT_ID"/>
+      </key-property>
+    </composite-id>
+    <property name="noOfMembers" type="int">
+      <column name="NO_OF_MEMBERS" not-null="true"/>
+    </property>
+    <property name="vacantSlots" type="int">
+      <column name="VACANT_SLOTS" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
