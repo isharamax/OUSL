@@ -1,0 +1,361 @@
+<ui:composition template="/WEB-INF/templates/master_template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Learning to Learn User Participation
+    </ui:define>
+
+    <ui:define name="main_content">
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_rounded-corners">
+                <tr>
+                    <td height="50" colspan="3" class="header_bg">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="txt_tahoma_14_black">&#160;<strong>LEARNING TO LEARN &#0187;&#160;USER PARTICIPATION</strong></span></td>
+                </tr>
+                <tr>
+                    <td width="2%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="97%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="1%" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">
+                        <h:form id="learning_to_learn_user_participation_form">
+                           <p:growl id="learning_to_learn_user_participation_messages" showDetail="true" />  
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="20%">&#160;</td>
+                                    <td width="3%">&#160;</td>
+                                    <td width="37%">&#160;</td>
+                                    <td width="20%" bgcolor="#FF0000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Current Level</td>
+                                    <td width="20%" bgcolor="#FF0000">&#160;Average&#160;Point Level</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>
+                                        <h:inputText value="#{lerToLer.currentLevel}" id="learning_to_learn_user_participation_cur_level" readonly="true"/>
+
+                                    </td>
+                                    <td>
+                                        <h:inputText value="#{lerToLer.pointLevel}" id="learning_to_learn_user_participation_point_level" readonly="true"/>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Staff No</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:inputText readonly="true" value="#{lerToLer.staffMember.staffId}" disabled="true" id="learning_to_learn_user_participation_staffId"/>
+                                        <h:commandButton action="/pages/learning_to_learn/leaning_to_learn_search" image="../../resources/images/icon-for-magnifying-glass_small.jpg" styleClass="some_class">
+                                        </h:commandButton>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Name</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:inputText readonly="true" value="#{lerToLer.staffMember.initials}&#160;#{lerToLer.staffMember.surname}" disabled="true"/>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Department</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:inputText readonly="true" value="#{lerToLer.department.deptName}" disabled="true" id="learning_to_learn_user_participation_department"/>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Staff Category</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td><h:inputText readonly="true" value="#{lerToLer.staffMember.staffCategory.staffCatName}" disabled="true" id="learning_to_learn_user_participation_staff_cat"/></td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Program</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{lerToLer.attendedProgram}" disabled="#{lerToLer.disablePrograms}" id="learning_to_learn_user_participation_programs" converter="#{programConverter}">
+                                            <f:selectItem itemLabel="Select Program" noSelectionOption="true"/>
+                                            <f:selectItems value="#{lerToLer.programList}" var="program" itemLabel="#{program.programName}" itemValue="#{program}"/>
+                                            <f:ajax event="change" execute="@this" render="learning_to_learn_user_participation_centers learning_to_learn_user_participation_sessions learning_to_learn_user_participation_dates" listener="#{lerToLer.processProgramChange}"/>
+                                        </h:selectOneMenu>                
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Centre</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{lerToLer.attendedCenter}" disabled="#{lerToLer.disableCenter}" id="learning_to_learn_user_participation_centers" converter="#{centerConverter}">
+                                            <f:selectItem itemLabel="Select Center" noSelectionOption="true"/>
+                                            <f:selectItems value="#{lerToLer.centerList}" var="c"
+                                                           itemLabel="#{c.centerName}" itemValue="#{c}" />
+                                            <f:ajax event="change" execute="@this" render="learning_to_learn_user_participation_sessions learning_to_learn_user_participation_dates" listener="#{lerToLer.processCenterChange}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Session</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{lerToLer.attendedSession}" disabled="#{lerToLer.disableSession}" id="learning_to_learn_user_participation_sessions" converter="#{sessionConverter}">
+                                            <f:selectItem itemLabel="Select Session" noSelectionOption="true"/>
+                                            <f:selectItems value="#{lerToLer.sessionList}" var="s"
+                                                           itemLabel="#{s.sessionDesc}" itemValue="#{s}" />
+                                            <f:ajax event="change" execute="@this" render="learning_to_learn_user_participation_dates" listener="#{lerToLer.processSessionChange}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Date</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{lerToLer.attendedDate}" disabled="#{lerToLer.disableDates}" id="learning_to_learn_user_participation_dates">
+                                            <f:selectItem itemLabel="Select Date" noSelectionOption="true"/>
+                                            <f:selectItems value="#{lerToLer.dateList}"/>
+                                            <f:ajax event="change" execute="@this" listener="#{lerToLer.processDateChange}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>
+                                        <p:commandButton value="Check Availability" styleClass="blue-button" id="learning_to_learn_user_participation_check_availability">
+                                            <p:ajax process="@this" update="learning_to_learn_user_participation_programs learning_to_learn_user_participation_messages" listener="#{lerToLer.checkAvailability}"/>
+                                        </p:commandButton>
+
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <h:dataTable id="learning_to_learn_view_details_list" value="#{lerToLer.learningStaff}" var="staff" 
+                                                     width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="viewList-table-header" rowClasses="viewList-table-row">
+                                            <h:column>
+                                                <!-- column header -->
+                                                <f:facet name="header">Staff No</f:facet>
+                                                <!-- row record -->
+                                                #{lerToLer.staffMember.staffId}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Name</f:facet>
+                                                    #{lerToLer.staffMember.initials} #{lerToLer.staffMember.surname}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Department</f:facet>
+                                                    #{staff.id.lerId.department.deptName}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Program</f:facet>
+                                                    #{staff.id.lerId.program.programName}
+                                            </h:column>
+                                            <h:column >
+                                                <f:facet name="header">Center</f:facet>
+                                                    #{staff.id.lerId.center.centerName}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Date</f:facet>
+                                                    #{staff.id.lerId.lerDate}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Session</f:facet>
+                                                    #{staff.id.lerId.session.sessionDesc}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Staff Category</f:facet>
+                                                    #{lerToLer.staffMember.staffCategory.staffCatName}
+                                            </h:column>
+
+                                        </h:dataTable>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td>&#160;</td>
+                                                <td>
+                                                    <p:commandButton value="New" styleClass="blue-button" id="learning_to_learn_user_participation_new">
+                                                        <p:ajax process="@this" update="learning_to_learn_user_participation_programs" listener="#{lerToLer.enablePrograms}"/>
+                                                    </p:commandButton>
+                                                </td>
+                                                <td><div align="center"></div></td>
+                                                <td >
+                                                    <p:commandButton value="Edit" styleClass="blue-button" id="learning_to_learn_user_participation_edit" disabled="#{lerToLer.disableEditButton}">
+                                                        <p:ajax process="@this" update="@form" listener="#{lerToLer.enableEditFields}"/>
+                                                    </p:commandButton>
+                                                </td>
+                                                <td><div align="center"></div></td>
+                                                <td>
+                                                    <p:commandButton value="Submit" styleClass="blue-button" id="learning_to_learn_user_participation_submit">
+                                                        <p:ajax process="@this" update="@form learning_to_learn_user_participation_messages" listener="#{lerToLer.save}"/>
+                                                    </p:commandButton>
+                                                </td>
+                                                <td><div align="center"></div></td>
+                                                <td>
+                                                    <p:commandButton value="Cancel" styleClass="blue-button" id="learning_to_learn_user_participation_cancel">
+                                                        <p:ajax process="@this" update="@form" listener="#{lerToLer.resetValues}"/>
+                                                    </p:commandButton>
+                                                </td>
+                                                <td><div align="center"></div></td>
+                                                <td >
+                                                    
+                                                    <p:commandButton value="Delete" styleClass="blue-button" id="learning_to_learn_user_participation_delete" actionListener="#{lerToLer.delete}" update="learning_to_learn_user_participation_messages @form" disabled="#{lerToLer.disableDeleteButton}">
+                                                        <p:confirm header="Confirm Delete Operation" message="Are you sure?"  icon="ui-icon-alert" />
+                                                    </p:commandButton>
+                                                    <p:confirmDialog global="true" showEffect="fade">  
+                                                        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+                                                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+                                                    </p:confirmDialog> 
+                                                </td>
+                                                <td>&#160;</td>
+                                            </tr>
+                                        </table></td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                            </table>
+                        </h:form>
+                    </td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td colspan="3" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+            </table>
+        </td>
+    </ui:define>
+</ui:composition>
+

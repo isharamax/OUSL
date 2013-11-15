@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"       
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" >
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title> :: Login :: Online Duty Roster Manager</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+        <!--
+        function MM_jumpMenu(targ,selObj,restore){ //v3.0
+          eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+          if (restore) selObj.selectedIndex=0;
+        }
+        //-->
+        </script>
+    </h:head>
+    <h:body>
+        <form>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="167" valign="top" class="header">
+                        <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/><br/>
+                        <table width="400" border="0" align="center" cellpadding="0" cellspacing="0" class="rounded-corners">
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <div align="center" border="none">					
+                                        <h:form>
+                                            <br/>
+                                            <p:messages id="CyberGISLoginMesssage" globalOnly="true" showDetail="true" showSummary="true"></p:messages> 
+                                            <br/>
+                                            <h:outputLabel for="#{user.userName}" value="Username : "/>  
+                                            <p:inputText id="userName" value="#{user.userName}" required="true" label="Username" styleClass="txt_box_rounded-corners">  
+                                                <f:validateLength minimum="2" />  
+                                            </p:inputText>  
+                                            <p:message for="userName" />  
+                                            <br/>
+                                            <h:outputLabel for="#{user.passWord}" value="Password  : " />  
+                                            <p:password id="passWord" value="#{user.passWord}" required="true" label="Password" feedback="true" minLength="4" styleClass="txt_box_rounded-corners"/>
+                                            <p:message for="passWord" />  						
+                                            <br/>&nbsp;&nbsp;&nbsp;
+                                            <h:commandButton type="submit" value="Login" action="#{user.loginUser}" styleClass="blue-button"  /> 
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <h:commandButton type="reset" value="Reset" action="#{user.resetUser}" styleClass="blue-button"/>	          
+                                        </h:form>
+                                        <br/><br/>
+                                        <h:form> 
+                                            <h:commandLink action="#{user.forgetPassword}" styleClass="txt_tahoma_12_blue" value="Change Your Password"/>
+                                        </h:form>
+                                        <br/>
+                                    </div>  
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                        <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="250" valign="top">
+                        <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="40" bgcolor="#efefef" align="center" class="txt_tahoma_12_black"> &#169; 2013 Open University of Sri Lanka(OUSL). All Rights Reserved. </td>
+                </tr>
+            </table>
+        </form>
+    </h:body>
+</html>
+

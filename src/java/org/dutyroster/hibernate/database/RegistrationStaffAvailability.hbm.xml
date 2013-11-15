@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2013 6:54:20 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="ousl_duty_roster" name="org.dutyroster.hibernate.database.RegistrationStaffAvailability" table="registration_staff_availability">
+    <composite-id class="org.dutyroster.hibernate.database.RegistrationStaffAvailabilityId" name="id">
+      <key-property name="regId" type="short">
+        <column name="REG_ID"/>
+      </key-property>
+      <key-property name="staffId" type="short">
+        <column name="STAFF_ID"/>
+      </key-property>
+      <key-property name="dayTypeId" type="short">
+        <column name="DAY_TYPE_ID"/>
+      </key-property>
+    </composite-id>
+    <property name="availability" type="short">
+      <column name="AVAILABILITY" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
