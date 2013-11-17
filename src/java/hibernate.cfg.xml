@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ousl_duty_roster?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">ishara123</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping resource="org/dutyroster/hibernate/database/Alert.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/RegistrationAlertHistory.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/RegistrationType.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/UserAccount.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/LearningAlertHistory.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/StaffCategory.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/Session.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/StaffLanguage.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/Program.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/PreOrientation.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/PreOrientationStaff.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/RegistationStaff.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/Language.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/WorkType.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/DayTypeWeghtage.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/StaffMember.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/StaffDistribution.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/WorkstationCenter.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/LearningToLearn.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/LearningStaffCat.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/LearningStaff.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/Department.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/Workstation.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/UserRole.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/RegistrationStaffAvailability.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/RegistrationStaffCat.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/LearningStaffAvailability.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/WorkstationPriority.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/PreOrientationAlertHistory.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/DayType.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/Center.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/RegistrationCriteria.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/Registration.hbm.xml"/>
+    <mapping resource="org/dutyroster/hibernate/database/Holiday.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

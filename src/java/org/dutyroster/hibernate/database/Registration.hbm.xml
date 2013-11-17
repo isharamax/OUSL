@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2013 6:54:20 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="ousl_duty_roster" name="org.dutyroster.hibernate.database.Registration" table="registration">
+    <id name="regId" type="java.lang.Short">
+      <column name="REG_ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="org.dutyroster.hibernate.database.Department" fetch="select" name="department">
+      <column name="DEPT_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="org.dutyroster.hibernate.database.Program" fetch="select" name="program">
+      <column name="PROGRAM_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="org.dutyroster.hibernate.database.Session" fetch="select" name="session">
+      <column name="SESSION_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="org.dutyroster.hibernate.database.RegistrationType" fetch="select" name="registrationType">
+      <column name="REG_TYPE_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="org.dutyroster.hibernate.database.Center" fetch="select" name="center">
+      <column name="CENTER_ID" not-null="true"/>
+    </many-to-one>
+    <property name="regDate" type="date">
+      <column length="10" name="REG_DATE" not-null="true"/>
+    </property>
+    <property name="regYear" type="date">
+      <column length="10" name="REG_YEAR" not-null="true"/>
+    </property>
+    <property name="distribution" type="string">
+      <column length="10" name="DISTRIBUTION" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

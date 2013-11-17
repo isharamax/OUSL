@@ -1,0 +1,153 @@
+<ui:composition template="/WEB-INF/templates/master_template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Pre Orientation View Status
+    </ui:define>
+
+    <ui:define name="main_content">
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_rounded-corners">
+                <tr>
+                    <td height="50" colspan="3" class="header_bg">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="txt_tahoma_14_black">&#160;<strong>Pre-Orientation&#160;&#0187;&#160;View Status</strong></span></td>
+                </tr>
+                <tr>
+                    <td width="2%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="97%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="1%" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">
+                        <h:form id="pre_orientation_view_status_form">
+
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="5%" height="20">&#160;</td>
+                                    <td width="2%">&#160;</td>
+                                    <td width="33%">&#160;</td>
+                                    <td width="10%">&#160;</td>
+                                    <td width="4%">&#160;</td>
+                                    <td width="46%">&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="txt_tahoma_12_black">From</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <p:calendar value="#{preView.fromDate}" style="height: 20px ; width: 100px" id="pre_orientation_view_status_from_date"/> 
+                                    </td>
+                                    <td class="txt_tahoma_12_black"> To</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <p:calendar value="#{preView.toDate}" style="height: 20px ; width: 100px" id="pre_orientation_view_status_to_date"/>
+                                    </td>
+                                    <td> 
+                                        <h:commandButton value="View" class="blue-button" id="pre_orientation_view_status_submit" >
+                                            <f:ajax execute="pre_orientation_view_status_from_date pre_orientation_view_status_to_date" render="pre_orientation_view_status_status_list" listener="#{preView.load}"/>
+                                        </h:commandButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="txt_tahoma_12_black">&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">
+                                        <h:dataTable id="pre_orientation_view_status_status_list" value="#{preView.viewList}" var="o" 
+                                                     width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="viewList-table-header" rowClasses="viewList-table-row">
+                                            <h:column>
+                                                <!-- column header -->
+                                                <f:facet name="header">Staff No</f:facet>
+                                                <!-- row record -->
+                                                #{preView.sm.staffId}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Name</f:facet>
+                                                    #{preView.sm.initials} #{preView.sm.surname}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Department</f:facet>
+                                                    #{o.id.preId.department.deptName}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Program</f:facet>
+                                                    #{o.id.preId.program.programName}
+                                            </h:column>
+                                            <h:column >
+                                                <f:facet name="header">Center</f:facet>
+                                                    #{o.id.preId.center.centerName}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Attended Date</f:facet>
+                                                    #{o.id.preId.preDate}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Session</f:facet>
+                                                    #{o.id.preId.session.sessionDesc}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Status</f:facet>
+                                                    #{o.applyStatus}
+                                            </h:column>
+
+                                        </h:dataTable>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                            </table>
+                        </h:form>
+                    </td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td colspan="3" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+            </table>
+        </td>
+    </ui:define>
+</ui:composition>
