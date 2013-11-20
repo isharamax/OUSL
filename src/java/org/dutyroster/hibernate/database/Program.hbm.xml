@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2013 6:54:20 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="ousl_duty_roster" name="org.dutyroster.hibernate.database.Program" table="program">
+    <id name="programId" type="java.lang.Short">
+      <column name="PROGRAM_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="programName" type="string">
+      <column length="25" name="PROGRAM_NAME" not-null="true"/>
+    </property>
+    <set inverse="true" name="registrations">
+      <key>
+        <column name="PROGRAM_ID" not-null="true"/>
+      </key>
+      <one-to-many class="org.dutyroster.hibernate.database.Registration"/>
+    </set>
+    <set inverse="true" name="preOrientations">
+      <key>
+        <column name="PROGRAM_ID" not-null="true"/>
+      </key>
+      <one-to-many class="org.dutyroster.hibernate.database.PreOrientation"/>
+    </set>
+    <set inverse="true" name="learningToLearns">
+      <key>
+        <column name="PROGRAM_ID" not-null="true"/>
+      </key>
+      <one-to-many class="org.dutyroster.hibernate.database.LearningToLearn"/>
+    </set>
+  </class>
+</hibernate-mapping>

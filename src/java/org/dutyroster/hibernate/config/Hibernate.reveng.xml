@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="ousl_duty_roster"/>
+  <table-filter match-name="session"/>
+  <table-filter match-name="work_type"/>
+  <table-filter match-name="department"/>
+  <table-filter match-name="workstation_priority"/>
+  <table-filter match-name="center"/>
+  <table-filter match-name="holiday"/>
+  <table-filter match-name="language"/>
+  <table-filter match-name="staff_member"/>
+  <table-filter match-name="registration_type"/>
+  <table-filter match-name="day_type"/>
+  <table-filter match-name="registration"/>
+  <table-filter match-name="learning_staff_availability"/>
+  <table-filter match-name="learning_staff_cat"/>
+  <table-filter match-name="learning_to_learn"/>
+  <table-filter match-name="alert"/>
+  <table-filter match-name="registration_staff_availability"/>
+  <table-filter match-name="pre_orientation"/>
+  <table-filter match-name="registration_staff_cat"/>
+  <table-filter match-name="day_type_weghtage"/>
+  <table-filter match-name="learning_alert_history"/>
+  <table-filter match-name="staff_category"/>
+  <table-filter match-name="registration_criteria"/>
+  <table-filter match-name="staff_language"/>
+  <table-filter match-name="pre_orientation_alert_history"/>
+  <table-filter match-name="program"/>
+  <table-filter match-name="learning_staff"/>
+  <table-filter match-name="registration_alert_history"/>
+  <table-filter match-name="user_role"/>
+  <table-filter match-name="registation_staff"/>
+  <table-filter match-name="pre_orientation_staff"/>
+  <table-filter match-name="user_account"/>
+  <table-filter match-name="workstation_center"/>
+  <table-filter match-name="workstation"/>
+</hibernate-reverse-engineering>
