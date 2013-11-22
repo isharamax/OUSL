@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2013 6:54:20 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="ousl_duty_roster" name="org.dutyroster.hibernate.database.StaffMember" table="staff_member">
+    <id name="staffId" type="java.lang.Short">
+      <column name="STAFF_ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="org.dutyroster.hibernate.database.Department" fetch="select" name="department">
+      <column name="DEPT_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="org.dutyroster.hibernate.database.UserRole" fetch="select" name="userRole">
+      <column name="ROLE_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="org.dutyroster.hibernate.database.StaffCategory" fetch="select" name="staffCategory">
+      <column name="STAFF_CAT_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="org.dutyroster.hibernate.database.Center" fetch="select" name="center">
+      <column name="CENTER_ID" not-null="true"/>
+    </many-to-one>
+    <property name="initials" type="string">
+      <column length="6" name="INITIALS" not-null="true"/>
+    </property>
+    <property name="surname" type="string">
+      <column length="25" name="SURNAME" not-null="true"/>
+    </property>
+    <property name="officePhone" type="java.lang.Integer">
+      <column name="OFFICE_PHONE"/>
+    </property>
+    <property name="mobile" type="java.lang.Integer">
+      <column name="MOBILE"/>
+    </property>
+    <property name="officeEmail" type="string">
+      <column length="50" name="OFFICE_EMAIL"/>
+    </property>
+  </class>
+</hibernate-mapping>

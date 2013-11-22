@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2013 6:54:20 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="ousl_duty_roster" name="org.dutyroster.hibernate.database.StaffCategory" table="staff_category">
+    <id name="staffCatId" type="java.lang.Short">
+      <column name="STAFF_CAT_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="staffCatName" type="string">
+      <column length="25" name="STAFF_CAT_NAME" not-null="true"/>
+    </property>
+    <set inverse="true" name="staffMembers">
+      <key>
+        <column name="STAFF_CAT_ID" not-null="true"/>
+      </key>
+      <one-to-many class="org.dutyroster.hibernate.database.StaffMember"/>
+    </set>
+  </class>
+</hibernate-mapping>

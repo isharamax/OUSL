@@ -1,0 +1,240 @@
+<ui:composition template="/WEB-INF/templates/master_template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Learning to Learn Search
+    </ui:define>
+    <ui:define name="main_content">
+   <h:outputScript library="js/learning_to_learn" name="learning_to_learn_search.js" target="head"/>
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_rounded-corners">
+                <tr>
+                    <td height="50" colspan="3" class="header_bg">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <span class="txt_tahoma_14_black">&#160;
+                            <strong>Learning to Learn&#160;&#0187;&#160; Search</strong>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="2%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="97%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="1%" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">
+                        <h:form id="learning_to_learn_search_form">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="5%" bgcolor="#FFFFFF">&#160;</td>
+                                    <td width="5%" height="109" bgcolor="#FFFFFF"> 
+                                        &#160;&#160;
+                                    </td>
+                                    <td width="2%" bgcolor="#FFFFFF">&#160;</td>
+                                    <td width="2%" bgcolor="#FFFFFF">&#160; </td>
+                                    <td width="100%" bgcolor="#00CCFF" class="tbl_rounded-corners">&#160;&#160;&#160;&#160;&#160;
+                                        <!--<span class="txt_tahoma_14_black">
+                                            <strong>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Search by :</strong>
+                                        </span>&#160;&#160;&#160;&#160;-->
+
+                                        <h:selectOneMenu value="#{learningSearchBean.criteriaValue}" id="learning_to_learn_search_filter_criteria">
+                                            <f:selectItem itemLabel="Select Criteria" noSelectionOption="true" itemValue="Select Criteria"/>
+                                            <f:selectItems value="#{learningSearchBean.filterCriteria}" var="cri" itemLabel="#{cri}"/>
+                                            <f:ajax event="change" execute="@this" listener="#{learningSearchBean.processFilterChange}" render="learning_to_learn_search_panel"/>
+                                        </h:selectOneMenu>
+                                        &#160;<!--&#160;&#160;&#160;&#160;&#160;&#160;&#160;-->
+                                        <h:panelGroup id="learning_to_learn_search_panel">
+                                            <h:inputText value="#{learningSearchBean.userCriteriaValue}" id="learning_to_learn_search_user_criteria" disabled="#{learningSearchBean.disableUserValue}" />
+                                            <p:calendar id="learning_to_learn_search_date" disabled="#{learningSearchBean.disableDate}" value="#{learningSearchBean.filterDate}" styleClass="calendarStyle"/>
+                                        </h:panelGroup>
+                                        &#160;<!--&#160;&#160;&#160;&#160;&#160;&#160;&#160;-->
+                                        <h:commandButton value="View" class="blue-button">
+                                            <f:ajax listener="#{learningSearchBean.processCriteriaValue}" execute="learning_to_learn_search_panel" render="@form learning_to_learn_search_filter_list"/>
+                                        </h:commandButton>
+                                    </td>
+                                    <td width="1%" bgcolor="#FFFFFF">&#160;</td>
+                                    <td width="5%" bgcolor="#FFFFFF">&#160;</td>
+                                    <td width="5%" bgcolor="#FFFFFF">&#160;</td>
+                                    <td width="1%" bgcolor="#FFFFFF">&#160;</td>
+                                </tr>
+
+                                <tr bgcolor="#FFFFFF">
+                                    <td colspan="9" class="txt_tahoma_12_black">&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="9" bgcolor="#FFFFFF">
+
+                                        <h:dataTable id="learning_to_learn_search_filter_list" value="#{learningSearchBean.staff}" var="s" 
+                                                     width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="viewList-table-header" rowClasses="viewList-table-row">
+                                            <h:column>
+                                                <!-- column header -->
+                                                <f:facet name="header">Staff No</f:facet>
+                                                <!-- row record -->
+                                                #{learningSearchBean.staffMember.staffId}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Name</f:facet>
+                                                    #{learningSearchBean.staffMember.initials} #{learningSearchBean.staffMember.surname}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Department</f:facet>
+                                                    #{s.learningStaff.id.lerId.department.deptName}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Program</f:facet>
+                                                    #{s.learningStaff.id.lerId.program.programName}
+                                            </h:column>
+                                            <h:column >
+                                                <f:facet name="header">Center</f:facet>
+                                                    #{s.learningStaff.id.lerId.center.centerName}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Attended Date</f:facet>
+                                                    #{s.learningStaff.id.lerId.lerDate}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Session</f:facet>
+                                                    #{s.learningStaff.id.lerId.session.sessionDesc}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Select</f:facet>                                
+                                                <h:selectBooleanCheckbox onclick="uncheckOthers(this);" value="#{s.checked}">
+                                                    <f:ajax event="change" execute="learning_to_learn_search_filter_list" listener="#{learningSearchBean.check(s)}"/><!-- render="learning_to_learn_search_filter_list"/>-->
+                                                </h:selectBooleanCheckbox>
+                                            </h:column>
+
+                                        </h:dataTable>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td colspan="2" bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">
+                                        <h:commandButton value="Select" class="blue-button" action="#{learningSearchBean.select()}" id="learning_to_learn_search_select" rendered="#{learningSearchBean.renderSelectButton}">
+                                            
+                                        </h:commandButton>
+                                        
+                                    </td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF" >
+                                        <h:commandButton value="Back" class="blue-button" action="/pages/learning_to_learn/leaning_to_learn_user_participation">
+
+                                        </h:commandButton>
+                                    </td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                </tr>
+                                <tr bgcolor="#FFFFFF">
+                                    <td colspan="9" bgcolor="#FFFFFF">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                    <td bgcolor="#FFFFFF">&#160;</td>
+                                </tr>
+                            </table>
+                        </h:form>
+
+
+                    </td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td colspan="3" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+            </table>
+        </td>
+    </ui:define>
+</ui:composition>

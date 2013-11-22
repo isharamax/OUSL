@@ -1,0 +1,276 @@
+<ui:composition template="/WEB-INF/templates/master_template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Pre Orientation Details
+    </ui:define>
+    <ui:define name="main_content">
+        <h:outputScript library="js/pre_orientation" name="pre_orientation_details.js" target="head"/>
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_rounded-corners">
+                <tr>
+                    <td height="50" colspan="3" class="header_bg">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        <span class="txt_tahoma_14_black">&#160;
+                            <strong>Pre-Orientation&#160;&#0187;&#160; Details</strong>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="2%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="97%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="1%" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">
+                        <h:form id="pre_orientation_details_form">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="20%">&#160;</td>
+                                    <td width="3%">&#160;</td>
+                                    <td width="37%">&#160;</td>
+                                    <td width="20%" bgcolor="#FF0000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Current Level</td>
+                                    <td width="20%" bgcolor="#FF0000">&#160;Average&#160;Point Level</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td><h:inputText value="#{preOrientation.currentLevel}" id="pre_orientation_details_current_level" disabled="true"></h:inputText></td>
+                                    <td><h:inputText value="n/a" id="pre_orientation_details_point_level" disabled="true"></h:inputText></td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Staff No</td>
+                                    <td>:</td>
+                                    <td>
+                                        <h:inputText readonly="true" value="##{preOrientation.staffMember.staffId}" disabled="true" id="pre_orientation_details_staff_no"/>
+                                        <h:commandButton action="/pages/pre_orientation/pre_orientation_popup" image="../../resources/images/icon-for-magnifying-glass_small.jpg" styleClass="some_class">
+
+                                        </h:commandButton>
+
+
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Name</td>
+                                    <td>:</td>
+                                    <td><h:inputText readonly="true" value="#{preOrientation.staffMember.initials}&#160;#{preOrientation.staffMember.surname}" disabled="true" id="pre_orientation_details_name"/></td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="txt_tahoma_12_black">Department</span></td>
+                                    <td>:</td>
+                                    <td>
+                                        <h:inputText readonly="true" value="#{preOrientation.department.deptName}" disabled="true" id="pre_orientation_details_department"/>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Attended Program</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{preOrientation.attendedProgram}" disabled="#{preOrientation.disablePrograms}" id="pre_orientation_details_attended_program" converter="#{programConverter}">
+                                            <f:selectItem itemLabel="Select Program" noSelectionOption="true"/>
+                                            <f:selectItems value="#{preOrientation.programList}" var="program" itemLabel="#{program.programName}" itemValue="#{program}"/>
+                                            <f:ajax event="change" execute="@this" render="pre_orientation_details_attended_center pre_orientation_details_attended_session pre_orientation_details_attended_date" listener="#{preOrientation.processProgramChange}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Attended Center</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{preOrientation.attendedCenter}" disabled="#{preOrientation.disableCenter}" id="pre_orientation_details_attended_center" converter="#{centerConverter}">
+                                            <f:selectItem itemLabel="Select Center" noSelectionOption="true"/>
+                                            <f:selectItems value="#{preOrientation.centerList}" var="c"
+                                                           itemLabel="#{c.centerName}" itemValue="#{c}" />
+                                            <f:ajax event="change" execute="@this" render="pre_orientation_details_attended_session pre_orientation_details_attended_date" listener="#{preOrientation.processCenterChange}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Attended Session</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{preOrientation.attendedSession}" disabled="#{preOrientation.disableSession}" id="pre_orientation_details_attended_session" converter="#{sessionConverter}">
+                                            <f:selectItem itemLabel="Select Session" noSelectionOption="true"/>
+                                            <f:selectItems value="#{preOrientation.sessionList}" var="s"
+                                                           itemLabel="#{s.sessionDesc}" itemValue="#{s}" />
+                                            <f:ajax event="change" execute="@this" render="pre_orientation_details_attended_date" listener="#{preOrientation.processSessionChange}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="txt_tahoma_12_black">&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Attended Date</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <!--<p:calendar value="#{preOrientation.attendedDate}" id="pre_orientation_details_date" pattern="MM/dd/yyyy" style="height: 20px ; width: 100px" disabled="#{preOrientation.disableDates}"/>-->
+                                        <h:selectOneMenu value="#{preOrientation.attendedDate}" disabled="#{preOrientation.disableDates}" id="pre_orientation_details_attended_date">
+                                            <f:selectItem itemLabel="Select Date" noSelectionOption="true"/>
+                                            <f:selectItems value="#{preOrientation.dateList}"/>
+                                            <f:ajax event="change" execute="@this" listener="#{preOrientation.processDateChange}" render="@form"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td>&#160;</td>
+                                                <td>
+
+                                                    <p:commandButton value="New" styleClass="blue-button" id="pre_orientation_details_btn_new" disabled="#{preOrientation.disableNewButton}">
+                                                        <p:ajax process="@this" update="pre_orientation_details_attended_program pre_orientation_details_btn_cancel" listener="#{preOrientation.enablePrograms}" oncomplete="disableFields()"/>
+                                                    </p:commandButton>
+                                                </td>
+                                                <td><div align="center"></div></td>
+                                                <td>
+                                                    <p:commandButton value="Edit" styleClass="blue-button" id="pre_orientation_details_btn_edit" disabled="#{preOrientation.disableEditButton}">
+                                                        <p:ajax process="@this" update="@form pre_orientation_details_btn_delete" listener="#{preOrientation.enableEditFields}" oncomplete="disableFields()"/>
+                                                    </p:commandButton>
+                                                </td>
+                                                <td>
+                                                    <div align="center"></div>
+                                                </td>
+                                                <td>
+                                                    <p:commandButton value="Submit" styleClass="blue-button" id="pre_orientation_details_btn_submit" disabled="#{preOrientation.disableSubmitButton}">
+                                                        <p:ajax process="@this" update="@form pre_orientation_details_messages" listener="#{preOrientation.save}" oncomplete="disableFields()"/>
+                                                    </p:commandButton>
+                                                </td>
+                                                <td>
+                                                    <div align="center"></div>
+                                                </td>
+                                                 <td>
+                                                     <p:commandButton value="Cancel" styleClass="blue-button" id="pre_orientation_details_btn_cancel" disabled="#{preOrientation.disableCancelButton}">
+                                                        <p:ajax process="@this" update="@form" listener="#{preOrientation.resetValues}" oncomplete="disableFields()"/>
+                                                    </p:commandButton>
+                                                </td>
+                                                <td>
+                                                    <div align="center">
+
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                     <p:growl id="pre_orientation_details_messages" showDetail="true" />  
+                                                     <p:commandButton value="Delete" styleClass="blue-button" id="pre_orientation_details_btn_delete" actionListener="#{preOrientation.delete}" update="pre_orientation_details_messages @form" disabled="#{preOrientation.disableDeleteButton}">
+                                                        <p:confirm header="Confirm Delete Operation" message="Are you sure?"  icon="ui-icon-alert" />
+                                                    </p:commandButton>
+                                                    <p:confirmDialog global="true" showEffect="fade">  
+                                                        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+                                                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+                                                    </p:confirmDialog>  
+                                                </td>
+                                                <td>&#160;</td>
+                                            </tr>
+                                        </table></td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                            </table>
+
+                        </h:form>
+                    </td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td colspan="3" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+            </table>
+        </td>
+    </ui:define>
+</ui:composition>
