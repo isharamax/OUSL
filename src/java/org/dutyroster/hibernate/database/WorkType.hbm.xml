@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 22, 2013 12:18:26 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.dutyroster.hibernate.database.WorkType" table="work_type" catalog="ousl_duty_roster">
+        <id name="workTypeId" type="short">
+            <column name="WORK_TYPE_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="workTypeName" type="string">
+            <column name="WORK_TYPE_NAME" length="25" not-null="true" />
+        </property>
+        <property name="workPercentage" type="float">
+            <column name="WORK_PERCENTAGE" precision="12" scale="0" not-null="true" />
+        </property>
+        <set name="registrations" inverse="true" table="registration_criteria">
+            <key>
+                <column name="WORK_TYPE_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="org.dutyroster.hibernate.database.Registration">
+                <column name="REG_ID" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

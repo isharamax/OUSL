@@ -1,0 +1,218 @@
+<!DOCTYPE html >
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title><ui:insert name="title">Default title</ui:insert></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <h:outputScript library="framework" name="jquery.min.js" target="head">
+        </h:outputScript>
+        <h:outputScript library="framework" name="jquery-ui.js" target="head">
+        </h:outputScript>
+        <h:outputStylesheet name="side_menu.css" library="css"/>
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputScript library="framework" name="ddaccordion.js" target="head"></h:outputScript>
+
+        <script type="text/javascript">
+
+            function MM_jumpMenu(targ, selObj, restore) { //v3.0
+                eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
+                if (restore)
+                    selObj.selectedIndex = 0;
+            }
+
+        </script>
+
+
+        <!-- Side Menu-->
+        <script type="text/javascript">
+
+            ddaccordion.init({
+                headerclass: "expandable", //Shared CSS class name of headers group that are expandable
+                contentclass: "categoryitems", //Shared CSS class name of contents group
+                revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+                mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+                collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+                defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
+                onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+                animatedefault: false, //Should contents open by default be animated into view?
+                persiststate: true, //persist state of opened contents within browser session?
+                toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+                togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+                animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+                oninit: function(headers, expandedindices) { //custom code to run when headers have initalized
+                    //do nothing
+                },
+                onopenclose: function(header, index, state, isuseractivated) { //custom code to run whenever a header is opened or closed
+                    //do nothing
+                }
+            })
+
+
+        </script>
+    </h:head>
+    <h:body>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td height="167" valign="top" class="header"><table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="166">&#160;</td>
+                            <td width="166">&#160;</td>
+                            <td width="166">&#160;</td>
+                            <td width="166">&#160;</td>
+                            <td width="285">&#160;</td>
+                            <td width="51">&#160;</td>
+                        </tr>
+                        <tr>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="opacityimage">
+                                    <tr>
+                                        <td width="36%">&#160;</td>
+                                        <td width="31%"><div align="right"><h:graphicImage library="images" name="home.png" width="44" height="38"/></div></td>
+                                        <td width="33%"><div align="right"><h:graphicImage library="images" name="help.png" width="37" height="35"/></div></td>
+                                    </tr>
+                                </table></td>
+                            <td>&#160;</td>
+                        </tr>
+                        <tr>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                        </tr>
+                        <tr>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                        </tr>
+                        <tr>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td align="center">
+                                <h:form> 
+                                    <h:outputLabel for="#{user.userName}" value="Welcome #{user.userName}" styleClass="txt_tahoma_12_white"/> 
+                                </h:form>
+                            </td>
+                            <td>
+                                <h:form> 
+                                    <h:commandLink action="#{user.logout}" styleClass="txt_tahoma_12_blue" value="Logout"/>
+                                </h:form>
+                            </td>
+                            <td>&#160;</td>
+                        </tr>
+                        <tr>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                        </tr>
+                    </table></td>
+            </tr>
+            <tr>
+                <td><table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="195">&#160;</td>
+                            <td width="791">&#160;</td>
+                            <td width="14">&#160;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><div class="arrowlistmenu" align="left">
+
+                                    <h3 class="menuheader expandable">+&#160;&#160;Registration</h3>
+                                    <ul class="categoryitems">
+                                        <li><a href="add_new_project.php">&#0187;&#160;&#160;User Participation</a></li>
+                                        <li><a href="view_project.php">&#0187;&#160;&#160;View Details</a></li>
+
+
+
+                                    </ul>
+
+                                    <h3 class="menuheader expandable">+&#160;&#160;Pre-Orientation</h3>
+                                    <ul class="categoryitems">
+                                        <li><h:link value="&#0187;&#160;&#160;Pre-Orientation" outcome="/pages/pre_orientation/pre_orientation" ></h:link></li>
+                                        <li>
+                                            <h:link value="&#0187;&#160;&#160;Pre-Orientation Detail" outcome="/pages/pre_orientation/pre_orientation_details" >
+                                            </h:link>
+                                        </li>
+                                        <li><h:link value="&#0187;&#160;&#160;Approval" outcome="/pages/pre_orientation/pre_orientation_approval" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;View Status" outcome="/pages/pre_orientation/pre_orientation_view_status" ></h:link></li>
+                                    </ul>
+
+                                    <h3 class="menuheader expandable">+&#160;&#160;Learning to Learn</h3>
+                                    <ul class="categoryitems">
+                                        <li><h:link value="&#0187;&#160;&#160;Learning to Learn" outcome="/pages/learning_to_learn/leaning_to_learn" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;User Participation" outcome="/pages/learning_to_learn/leaning_to_learn_user_participation" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;View Detail" outcome="/pages/learning_to_learn/leaning_to_learn_view_details" ></h:link></li>
+
+
+                                    </ul>
+
+
+                                    <h3 class="menuheader expandable">+&#160;&#160;Administration</h3>
+                                    <ul class="categoryitems" >
+                                        <li><h:link value="&#0187;&#160;&#160;Department " outcome="/administration/department" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Center" outcome="/administration/center" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Session" outcome="/administration/session" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Workstation " outcome="/administration/workstation" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Registration Type" outcome="/administration/registrationType" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Work Type" outcome="/administration/workType" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Day Type" outcome="/administration/dayType" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Holiday" outcome="/administration/holiday" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Language" outcome="/administration/language" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;User Role" outcome="/administration/userRole" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Staff Category" outcome="/administration/staffCategory" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Program" outcome="/administration/program" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Alert" outcome="/administration/alert" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Staff Member" outcome="/administration/staffMember" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Create Account" outcome="add_new_project.php" ></h:link></li>
+                                        <li><h:link value="&#0187;&#160;&#160;Schedule" outcome="/pages/administration/administration_schedule" ></h:link></li>
+                                        <li></li>
+
+
+
+                                    </ul>
+
+
+                                    <h3 class="menuheader expandable">+&#160;&#160;Report</h3>
+                                    <ul class="categoryitems">
+
+                                        <li><a href="add_new_project.php">&#0187;&#160;&#160;</a></li>
+                                        <li><a href="add_new_project.php">&#0187;&#160;&#160;</a></li>
+                                        <li><a href="add_new_project.php">&#0187;&#160;&#160;</a></li>
+
+                                    </ul>
+                                </div>
+
+                            </td>
+                            <ui:insert name="main_content">Main Content</ui:insert>
+                            <td>&#160;</td>
+                        </tr>
+                        <tr>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                            <td>&#160;</td>
+                        </tr>
+                    </table></td>
+            </tr>
+            <tr>
+                <td height="100" bgcolor="#efefef">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;©2013 Open University of Sri Lanka(OUSL). All rights reserved. </td>
+            </tr>
+        </table>
+        <p class="green">&#160;</p>
+        <p class="green">&#160;</p>
+    </h:body>
+</html>

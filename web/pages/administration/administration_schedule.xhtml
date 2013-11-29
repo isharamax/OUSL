@@ -1,0 +1,266 @@
+<ui:composition template="/WEB-INF/templates/master_template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Administration Schedule
+    </ui:define>
+
+    <ui:define name="main_content">
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_rounded-corners">
+                <tr>
+                    <td height="50" colspan="3" class="header_bg">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="txt_tahoma_14_black"><strong> Administration &#0187; Schedule</strong><strong></strong></span></td>
+                </tr>
+                <tr>
+                    <td width="2%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="97%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="1%" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">
+                        <h:form id="administration_schedule_form">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="20%">&#160;</td>
+                                    <td width="3%">&#160;</td>
+                                    <td width="37%">&#160;</td>
+                                    <td width="20%">&#160;</td>
+                                    <td width="20%">&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Schedule ID</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:inputText value="#{adminSchedule.scheduleId}" id="administration_schedule_schedule_id"/>
+                                        <h:graphicImage library="images" name="icon-for-magnifying-glass_small.jpg" width="25" height="25" />
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Schedule Type</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{adminSchedule.scheduleTypeId}" id="administration_schedule_schedule_type">
+                                            <f:selectItem itemLabel="Select Schedule Type" noSelectionOption="true" />
+                                            <f:selectItems value="#{adminSchedule.scheduleTypeList}"/>
+                                            <f:ajax event="change" execute="@this" render="administration_schedule_distribution_type" listener="#{adminSchedule.determineDitributionVisibility}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Date</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <p:calendar value="#{adminSchedule.date}" id="administration_schedule_date"/>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Academic Year</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <p:calendar value="#{adminSchedule.academicYear}" id="administration_schedule_academic_year"/>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Program</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{adminSchedule.programId}" disabled="false" id="administration_schedule_program" converter="#{programConverter}">
+                                            <f:selectItem itemLabel="Select Program" noSelectionOption="true" />
+                                            <f:selectItems value="#{adminSchedule.programList}" var="program" itemLabel="#{program.programName}" itemValue="#{program}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Center</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{adminSchedule.centerId}" disabled="false" id="administration_schedule_center" converter="#{centerConverter}">
+                                            <f:selectItem itemLabel="Select Center" noSelectionOption="true" />
+                                            <f:selectItems value="#{adminSchedule.centerList}" var="center" itemLabel="#{center.centerName}" itemValue="#{center}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Department</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{adminSchedule.departmentId}" disabled="false" id="administration_schedule_department" converter="#{departmentConverter}">
+                                            <f:selectItem itemLabel="Select Department" noSelectionOption="true" />
+                                            <f:selectItems value="#{adminSchedule.departmentList}" var="department" itemLabel="#{department.deptName}" itemValue="#{department}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Session</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{adminSchedule.sessionId}" disabled="false" id="administration_schedule_session" converter="#{sessionConverter}">
+                                            <f:selectItem itemLabel="Select Session" noSelectionOption="true"/>
+                                            <f:selectItems value="#{adminSchedule.sessionList}" var="ses" itemLabel="#{ses.sessionDesc}" itemValue="#{ses}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">Distribution Type</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <h:selectOneMenu value="#{adminSchedule.distributionTypeId}" disabled="#{adminSchedule.disableDistribution}" id="administration_schedule_distribution_type" >
+                                            <f:selectItem itemLabel="Select Distribution Type" noSelectionOption="true" />
+                                            <f:selectItems value="#{adminSchedule.distributionTypeList}" var="distrubution" itemLabel="#{distrubution}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td class="txt_tahoma_12_black">&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td>&#160;</td>
+                                                <td class="blue-button"><div align="center">New</div></td>
+                                                <td><div align="center"></div></td>
+                                                <td class="blue-button"><div align="center">Edit</div></td>
+                                                <td><div align="center"></div></td>
+                                                <td>
+                                                    <h:commandButton value="Submit" class="blue-button" id="administration_schedule_submit" >
+                                                        <f:ajax execute="administration_schedule_schedule_id administration_schedule_schedule_type administration_schedule_date administration_schedule_academic_year administration_schedule_program administration_schedule_center administration_schedule_department administration_schedule_session administration_schedule_distribution_type" render="@form" listener="#{adminSchedule.save}"/>
+                                                    </h:commandButton>
+                                                </td>
+                                                <td><div align="center"></div></td>
+                                                <td class="blue-button"><div align="center">Delete</div></td>
+                                                <td>&#160;</td>
+                                            </tr>
+                                        </table></td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                            </table>
+                        </h:form>
+                    </td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td colspan="3" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+            </table>          
+        </td>
+    </ui:define>
+</ui:composition>
+
+

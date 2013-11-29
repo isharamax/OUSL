@@ -1,0 +1,163 @@
+<ui:composition template="/WEB-INF/templates/master_template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Pre Orientation Approval
+    </ui:define>
+
+    <ui:define name="main_content">
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_rounded-corners">
+                <tr>
+                    <td height="50" colspan="3" class="header_bg">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="txt_tahoma_14_black">&#160;<strong>Pre-Orientation&#160;&#0187;&#160; Approval</strong></span></td>
+                </tr>
+                <tr>
+                    <td width="2%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="97%" bgcolor="#ffffe7">&#160;</td>
+                    <td width="1%" bgcolor="#ffffe7">&#160;</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffe7">&#160;</td>
+                    <td bgcolor="#ffffe7">
+                        <h:form>
+                             <p:growl id="pre_orientation_approval_messages" showDetail="true" />  
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="5%" height="20">&#160;</td>
+                                    <td width="2%">&#160;</td>
+                                    <td width="33%">&#160;</td>
+                                    <td width="10%">&#160;</td>
+                                    <td width="4%">&#160;</td>
+                                    <td width="46%">&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="txt_tahoma_12_black">From</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <p:calendar value="#{preApproval.fromDate}" style="height: 20px ; width: 100px" id="pre_orientation_approval_from_date"/>                                     </td>
+                                    <td class="txt_tahoma_12_black"> To</td>
+                                    <td class="txt_tahoma_12_black">:</td>
+                                    <td>
+                                        <p:calendar value="#{preApproval.toDate}" style="height: 20px ; width: 100px" id="pre_orientation_approval_to_date"/>     
+                                    </td>
+                                    <td> 
+                                        <h:commandButton value="View" class="blue-button" id="pre_orientation_approval_submit" >
+                                            <f:ajax execute="pre_orientation_approval_from_date pre_orientation_approval_to_date" render="pre_orientation_approval_list pre_orientation_approval_list pre_orientation_approval_approve pre_orientation_approval_reject" listener="#{preApproval.load}"/>
+                                        </h:commandButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="txt_tahoma_12_black">&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">
+                                        <h:dataTable id="pre_orientation_approval_list" value="#{preApproval.viewList}" var="o" 
+                                                     width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="viewList-table-header" rowClasses="viewList-table-row">
+                                            <h:column>
+                                                <!-- column header -->
+                                                <f:facet name="header">Staff No</f:facet>
+                                                <!-- row record -->
+                                                #{o.pos.id.staffId.staffId}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Name</f:facet>
+                                                    #{o.pos.id.staffId.initials} #{o.pos.id.staffId.surname}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Department</f:facet>
+                                                    #{o.pos.id.preId.department.deptName}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Program</f:facet>
+                                                    #{o.pos.id.preId.program.programName}
+                                            </h:column>
+                                            <h:column >
+                                                <f:facet name="header">Center</f:facet>
+                                                    #{o.pos.id.preId.center.centerName}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Attended Date</f:facet>
+                                                    #{o.pos.id.preId.preDate}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Session</f:facet>
+                                                    #{o.pos.id.preId.session.sessionDesc}
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Approve/Reject</f:facet>
+
+                                                <h:selectBooleanCheckbox value="#{o.checked}">
+                                                    <f:ajax event="change" listener="#{preApproval.check}"/>
+                                                </h:selectBooleanCheckbox>
+                                            </h:column>
+                                        </h:dataTable>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td colspan="3">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                                                <tr>
+                                                    <td width="39%">&#160;</td>
+                                                    <td width="26%">
+                                                        <h:commandButton class="blue-button" value="Approve" disabled="#{preApproval.disableButtons}" id="pre_orientation_approval_approve">
+                                                            <f:ajax listener="#{preApproval.approve}" execute="pre_orientation_approval_list" render="pre_orientation_approval_list @this pre_orientation_approval_reject pre_orientation_approval_messages"/>
+                                                        </h:commandButton>
+                                                    </td>
+                                                    <td width="8%">&#160;</td>
+                                                    <td width="27%">
+                                                        <h:commandButton styleClass="blue-button" value="Reject" disabled="#{preApproval.disableButtons}" id="pre_orientation_approval_reject">
+                                                            <f:ajax listener="#{preApproval.reject}" execute="pre_orientation_approval_list" render="pre_orientation_approval_list pre_orientation_approval_approve @this pre_orientation_approval_messages"/>
+                                                        </h:commandButton> 
+                                                    </td>
+                                                </tr>
+                  
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </h:form>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </ui:define>
+</ui:composition>

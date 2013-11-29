@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 22, 2013 12:18:26 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.dutyroster.hibernate.database.RegistrationStaff" table="registration_staff" catalog="ousl_duty_roster">
+        <composite-id name="id" class="org.dutyroster.hibernate.database.RegistrationStaffId">
+            <key-property name="regId" type="short">
+                <column name="REG_ID" />
+            </key-property>
+            <key-property name="staffId" type="short">
+                <column name="STAFF_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="staffMember" class="org.dutyroster.hibernate.database.StaffMember" update="false" insert="false" fetch="select">
+            <column name="STAFF_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="registration" class="org.dutyroster.hibernate.database.Registration" update="false" insert="false" fetch="select">
+            <column name="REG_ID" not-null="true" />
+        </many-to-one>
+        <property name="applyStatus" type="string">
+            <column name="APPLY_STATUS" length="15" not-null="true" />
+        </property>
+        <property name="points" type="short">
+            <column name="POINTS" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,503 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Administration : Schedule</title>
+        <link href="#{facesContext.externalContext.requestContextPath}/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/menu/side/side_menu.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <form>
+            <table width="101%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="167" valign="top" class="header"><table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="166">&nbsp;</td>
+                                <td width="166">&nbsp;</td>
+                                <td width="166">&nbsp;</td>
+                                <td width="166">&nbsp;</td>
+                                <td width="285">&nbsp;</td>
+                                <td width="51">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="opacityimage">
+                                        <tr>
+                                            <td width="36%">&nbsp;</td>
+                                            <td width="31%"><div align="right"><img src="#{facesContext.externalContext.requestContextPath}/images/home.png" width="44" height="38" /></div></td>
+                                            <td width="33%"><div align="right"><img src="#{facesContext.externalContext.requestContextPath}/images/help.png" width="37" height="35" /></div></td>
+                                        </tr>
+                                    </table></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td align="center">
+                                    <h:form> 
+                                        <h:outputLabel for="#{user.userName}" value="Welcome #{user.userName}" styleClass="txt_tahoma_12_white"/> 
+                                    </h:form></td>
+                                <td><h:form> 
+                                        <h:commandLink action="#{user.logout}" styleClass="txt_tahoma_12_blue" value="Logout"/>
+                                    </h:form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table></td>
+                </tr>
+                <tr>
+                    <td><table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="195">&nbsp;</td>
+                                <td width="791">&nbsp;</td>
+                                <td width="14">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td valign="top"><div class="arrowlistmenu" align="left">
+                                        <h3 class="menuheader expandable">+&nbsp;&nbsp;Registration</h3>
+                                        <ul class="categoryitems">
+                                            <li><a href="add_new_project.php">&raquo;&nbsp;&nbsp;User Participation</a></li>
+                                            <li><a href="view_project.php">&raquo;&nbsp;&nbsp;View Details</a></li>
+                                        </ul>
+
+                                        <h3 class="menuheader expandable">+&nbsp;&nbsp;Pre-Orientation</h3>
+                                        <ul class="categoryitems">
+                                            <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;Pre-Orientation Detail</a></li>
+                                            <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;Approval</a></li>
+                                            <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;View Detail</a></li>
+                                        </ul>
+
+                                        <h3 class="menuheader expandable">+&nbsp;&nbsp;Learning to Learn</h3>
+                                        <ul class="categoryitems">
+                                            <li></li>
+                                            <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;User Participation</a></li>
+                                            <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;View Detail</a></li>
+                                        </ul>
+
+                                        <h3 class="menuheader expandable">+&nbsp;&nbsp;Administration</h3>
+                                        <ul class="categoryitems" >
+                                            <li><a href="../administration/department.jsf">&raquo;&nbsp;&nbsp;Department </a></li>
+                                            <li><a href="../administration/center.jsf">&raquo;&nbsp;&nbsp;Center</a></li>
+                                            <li><a href="../administration/session.jsf">&raquo;&nbsp;&nbsp;Session </a></li>
+                                            <li><a href="../administration/workstation.jsf">&raquo;&nbsp;&nbsp;Workstation </a></li>
+                                            <li><a href="../administration/registrationType.jsf">&raquo;&nbsp;&nbsp;Registration Type</a></li>
+                                            <li><a href="../administration/workType.jsf">&raquo;&nbsp;&nbsp;Work Type</a></li>
+                                            <li><a href="../administration/dayType.jsf">&raquo;&nbsp;&nbsp;Day Type</a></li>
+                                            <li><a href="../administration/holiday.jsf">&raquo;&nbsp;&nbsp;Holiday</a></li>
+                                            <li><a href="../administration/language.jsf">&raquo;&nbsp;&nbsp;Language</a></li>
+                                            <li><a href="../administration/userRole.jsf">&raquo;&nbsp;&nbsp;User Role</a></li>
+                                            <li><a href="../administration/staffcategory.jsf">&raquo;&nbsp;&nbsp;Staff Category</a></li>
+                                            <li><a href="../administration/program.jsf">&raquo;&nbsp;&nbsp;Program</a></li>
+                                            <li><a href="../administration/alert.jsf">&raquo;&nbsp;&nbsp;Alert</a></li>
+                                            <li><a href="../administration/staffMember.jsf">&raquo;&nbsp;Staff Member</a></li>
+                                            <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;Create Account</a></li>
+                                            <li><a href="../administration/schedule.jsf">&raquo;&nbsp;Schedule</a></li>
+                                        </ul>
+
+                                        <h3 class="menuheader expandable">+&nbsp;&nbsp;Report</h3>
+                                        <ul class="categoryitems">
+                                            <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;</a></li>
+                                            <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;</a></li>
+                                            <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td valign="top">
+                                    <h:panelGrid width="100%">
+                                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_rounded-corners">
+                                            <tr>
+                                                <td height="50" colspan="3" class="header_bg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span class="txt_tahoma_14_black">
+                                                        <strong> Administration &gt;&gt; Schedule</strong>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="2%" bgcolor="#ffffe7">&nbsp;</td>
+                                                <td width="97%" bgcolor="#ffffe7">&nbsp;</td>
+                                                <td width="1%" bgcolor="#ffffe7">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td bgcolor="#ffffe7">&nbsp;</td>
+                                                <td bgcolor="#ffffe7">
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <h:form id="frmInputs">
+                                                            <h:panelGrid  id="panel">
+                                                                <p:row> 
+                                                                    <tr>
+                                                                        <td width="25%">&nbsp;</td>
+                                                                        <td width="5%">&nbsp;</td>
+                                                                        <td width="45%">&nbsp;</td>
+                                                                        <td width="5%">&nbsp;</td>
+                                                                        <td width="20%">&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row> 
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.scheduleId}" value="Schedule ID"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black"><p:inputText id="scheduleId" value="#{schedule.scheduleId}" label="Schedule ID" style="width:300px"></p:inputText></td>
+                                                                        <td><h:form>
+                                                                                <!--<p:commandLink onclick="searchDialog.show()" title="Enter Search String:">  
+                                                                                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" value="Search"/>    
+                                                                                </p:commandLink>
+                                                                                -->
+                                                                                <p:dialog width="500" header="Enter Search Criteria" widgetVar="searchDialog" modal="true">  
+                                                                                    <p:outputPanel id="inputs" style="text-align:center;">  
+                                                                                        <h:panelGrid  columns="2" cellpadding="5">   
+                                                                                            <h:outputLabel value="Schedule Date :" />  
+                                                                                            <p:calendar id="sdate" value="#{schedule.filterText}" mode="popup" style="width:10px" styleClass="txt_box_rounded-corners" />
+                                                                                            <div align="center">
+                                                                                                <h:commandButton type="submit" value="Search" action="#{schedule.searchScheduleInfo}" styleClass="blue-button" onclick="searchDialog.close()"/>
+                                                                                            </div>
+                                                                                        </h:panelGrid>  
+                                                                                    </p:outputPanel>  
+                                                                                </p:dialog> 
+                                                                            </h:form>
+                                                                        </td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row> 
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row> 
+                                                                <p:row> 
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.scheduleType}" value="Schedule Type"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black"><h:selectOneMenu id="scheduleType" value="#{schedule.scheduleType}" style="width:350px" >
+                                                                                <f:selectItem itemLabel="Select Type" itemValue="" />
+                                                                                <f:selectItems value="#{schedule.scheduleTypes}" />
+                                                                            </h:selectOneMenu></td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.date}" value="Date"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black"><p:calendar value="#{schedule.date}" mode="popup" style="width:300px" /></td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.academicYear}" value="Academic Year"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black"><p:inputText id="academicYear" value="#{schedule.academicYear}" label="Academic Year" styleClass="txt_box_rounded-corners" style="width:275px"></p:inputText></td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.program}" value="Program"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black">
+                                                                            <h:selectOneMenu id="program" value="#{schedule.program}" style="width:350px">
+                                                                                <f:selectItem itemLabel="Select Program" itemValue="" />
+                                                                                <f:selectItems value="#{schedule.programList}"  var="prog" itemValue="#{schedule.programList}" itemLabel="#{prog.programName}"/>
+                                                                            </h:selectOneMenu></td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.centerID}" value="Center"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black"><h:selectOneMenu id="center" value="#{schedule.centerID}" style="width:350px">
+                                                                                <f:selectItem itemLabel="Select Center" itemValue="" />
+                                                                                <f:selectItems value="#{schedule.centerList}"  var="cent" itemValue="#{cent.centerId}" itemLabel="#{cent.centerName}"/>
+                                                                            </h:selectOneMenu></td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>    
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.departmentID}" value="Department"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black"><h:selectOneMenu id="department" value="#{schedule.departmentID}" style="width:350px">
+                                                                                <f:selectItem itemLabel="Select Department" itemValue="" />
+                                                                                <f:selectItems value="#{schedule.departmentList}"  var="dept" itemValue="#{dept.deptId}" itemLabel="#{dept.deptName}"/>
+                                                                            </h:selectOneMenu></td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.sessionID}" value="Session"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black"><h:selectOneMenu id="sessionDesc" value="#{schedule.sessionID}" style="width:350px">
+                                                                                <f:selectItem itemLabel="Select Session" itemValue="" />
+                                                                                <f:selectItems value="#{schedule.sessionList}"  var="sess" itemValue="#{sess.sessionId}" itemLabel="#{sess.sessionDesc}"/>
+                                                                            </h:selectOneMenu></td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.registrationTypeID}" value="Registration Type"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black"><h:selectOneMenu id="registrationType" value="#{schedule.registrationTypeID}" style="width:350px">
+                                                                                <f:selectItem itemLabel="Select Type" itemValue="" />
+                                                                                <f:selectItems value="#{schedule.registrationTypeList}"  var="regt" itemValue="#{regt.regTypeId}" itemLabel="#{regt.regTypeName}"/>
+                                                                            </h:selectOneMenu></td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <p:row>
+                                                                    </p:row>
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black"><h:outputLabel for="#{schedule.distributionType}" value="Distribution Type"/></td>
+                                                                        <td class="txt_tahoma_12_black">:</td>
+                                                                        <td class="txt_tahoma_12_black"><h:selectOneMenu id="distributionType" value="#{schedule.distributionType}" style="width:350px">
+                                                                                <f:selectItem itemLabel="Select Type" itemValue="" />
+                                                                                <f:selectItems value="#{schedule.distributionTypes}" />
+                                                                            </h:selectOneMenu></td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row> 
+                                                                <p:row> 
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black" colspan="5"><p:messages id="centerMessage" globalOnly="false" showDetail="true" showSummary="true" /> </td>
+                                                                    </tr>
+                                                                </p:row>
+                                                                <p:row> 
+                                                                    <tr>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row> 
+                                                                <p:row> 
+                                                                    <tr>
+                                                                        <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                <tr>
+                                                                                    <td width="25">&nbsp;</td>
+                                                                                    <td><div align="center"></div></td>
+                                                                                    <td><h:commandButton type="submit" value="New" action="#{schedule.newScheduleInfo}" styleClass="blue-button"  /></td>
+                                                                                    <td><div align="center"></div></td>
+                                                                                    <td><h:commandButton type="submit" value="Update" action="#{schedule.addScheduleInfo}" styleClass="blue-button"  /></td>
+                                                                                    <td><div align="center"></div></td>
+                                                                                    <td><h:commandButton type="submit" value="Submit" action="#{schedule.addScheduleInfo}" styleClass="blue-button"  /></td>
+                                                                                    <td><div align="center"></div></td>
+                                                                                    <td><h:commandButton type="submit" value="Delete" action="#{schedule.addScheduleInfo}" styleClass="blue-button"  /></td>
+                                                                                    <td><div align="center"></div></td>
+                                                                                    <td><h:commandButton type="submit" value="Clear" action="#{schedule.addScheduleInfo}" styleClass="blue-button"  /></td>
+                                                                                </tr>
+                                                                            </table></td>
+                                                                    </tr>
+                                                                </p:row> 
+                                                                <p:row> 
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </p:row> 
+                                                            </h:panelGrid>
+                                                        </h:form>
+                                                        <tr>
+                                                            <td colspan="5" align="center" width="100%">
+                                                                <h:form id="frmSearch">
+                                                                    <p:dataTable id="dtschedules" var="Schedules" value="#{schedule.registrations}" selection="#{schedule.selected}" selectionMode="single" paginator="true" 
+                                                                                 rows="5" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15" styleClass="header_bg"> 
+                                                                        <f:facet name="header">
+                                                                            <p:commandButton value="Select to Edit/Delete"  update=":frmInputs:panel" image="ui-icon ui-icon-search" action="#{schedule.selected}" styleClass="blue-button"/>  							
+                                                                        </f:facet>
+                                                                        <p:column headerText="Schedule ID" style="width:40px; align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                            <h:outputText value="#{Schedules.regId}"/>  
+                                                                        </p:column>  
+
+                                                                        <p:column headerText="Date" style="width:50px; align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                            <h:outputText value="#{Schedules.regDate}"/>  
+                                                                        </p:column>  
+
+                                                                        <p:column headerText="Academic Year" style="width:40px;align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                            <h:outputText value="#{Schedules.regYear}" />  
+                                                                        </p:column>
+
+                                                                        <p:column headerText="Program" style="width:100px; align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                            <h:outputText value="#{Schedules.program.programName}"/>  
+                                                                        </p:column>  
+
+                                                                        <p:column headerText="Center" style="width:100px;align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                            <h:outputText value="#{Schedules.center.centerName}" />  
+                                                                        </p:column>
+
+                                                                        <p:column headerText="Department" style="width:100px; align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                            <h:outputText value="#{Schedules.department.deptName}"/>  
+                                                                        </p:column>  
+
+                                                                        <p:column headerText="Session" style="width:80px;align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                            <h:outputText value="#{Schedules.sessioninfo.sessionDesc}" />  
+                                                                        </p:column>                                                                        
+
+                                                                        <p:column headerText="Type" style="width:60px;align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                            <h:outputText value="#{Schedules.registrationType.regTypeName}" />  
+                                                                        </p:column> 
+
+                                                                        <p:column headerText="Distribution" style="width:80px;align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                            <h:outputText value="#{Schedules.distribution}" />  
+                                                                        </p:column>
+                                                                        <f:facet name="footer">
+                                                                            <p:commandButton value="Select to Edit/Delete" update=":frmInputs:panel" image="ui-icon ui-icon-search" action="#{schedule.selected}" styleClass="blue-button"/>  							
+                                                                        </f:facet>
+                                                                    </p:dataTable>
+                                                                </h:form>
+                                                            </td>    
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td bgcolor="#ffffe7">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td bgcolor="#ffffe7">&nbsp;</td>
+                                                <td bgcolor="#ffffe7">&nbsp;</td>
+                                                <td bgcolor="#ffffe7">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </h:panelGrid>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table></td>
+                </tr>
+                <tr>
+                    <td height="40" bgcolor="#efefef" align="center" class="txt_tahoma_12_black">  &#169; 2013 Open University of Sri Lanka(OUSL). All Rights Reserved. </td>
+                </tr>
+            </table>
+        </form>
+    </h:body>
+</html>
+

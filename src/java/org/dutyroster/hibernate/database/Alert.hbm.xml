@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2013 6:54:20 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="ousl_duty_roster" name="org.dutyroster.hibernate.database.Alert" table="alert">
+    <id name="alertId" type="java.lang.Short">
+      <column name="ALERT_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="alertName" type="string">
+      <column length="25" name="ALERT_NAME" not-null="true"/>
+    </property>
+    <property name="alertBody" type="string">
+      <column length="500" name="ALERT_BODY" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

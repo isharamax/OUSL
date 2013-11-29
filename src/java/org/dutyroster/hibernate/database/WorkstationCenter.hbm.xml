@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2013 6:54:20 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class catalog="ousl_duty_roster" name="org.dutyroster.hibernate.database.WorkstationCenter" table="workstation_center">
+        <composite-id class="org.dutyroster.hibernate.database.WorkstationCenterId" name="id">
+         
+            <key-many-to-one name="centerId"
+                             class="org.dutyroster.hibernate.database.Center"
+                             column="CENTRE_ID">
+            </key-many-to-one>
+
+            <key-many-to-one name="workstationId"
+                             class="org.dutyroster.hibernate.database.Workstation"
+                             column="WORKSTATION_ID">
+            </key-many-to-one>
+        </composite-id>
+        <property name="distance" type="int">
+            <column name="DISTANCE" not-null="true"/>
+        </property>
+        <property name="points" type="short">
+            <column name="POINTS" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

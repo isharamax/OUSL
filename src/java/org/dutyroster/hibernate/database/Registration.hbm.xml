@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 22, 2013 12:18:26 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.dutyroster.hibernate.database.Registration" table="registration" catalog="ousl_duty_roster">
+        <id name="regId" type="short">
+            <column name="REG_ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="department" class="org.dutyroster.hibernate.database.Department" fetch="select">
+            <column name="DEPT_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="program" class="org.dutyroster.hibernate.database.Program" fetch="select">
+            <column name="PROGRAM_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sessioninfo" class="org.dutyroster.hibernate.database.Sessioninfo" fetch="select">
+            <column name="SESSION_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="registrationType" class="org.dutyroster.hibernate.database.RegistrationType" fetch="select">
+            <column name="REG_TYPE_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="center" class="org.dutyroster.hibernate.database.Center" fetch="select">
+            <column name="CENTER_ID" not-null="true" />
+        </many-to-one>
+        <property name="regDate" type="date">
+            <column name="REG_DATE" length="10" not-null="true" />
+        </property>
+        <property name="regYear" type="short">
+            <column name="REG_YEAR" not-null="true" />
+        </property>
+        <property name="distribution" type="string">
+            <column name="DISTRIBUTION" length="10" not-null="true" />
+        </property>
+        <set name="workTypes" inverse="false" table="registration_criteria">
+            <key>
+                <column name="REG_ID" not-null="true" />
+            </key>
+            <many-to-many entity-name="org.dutyroster.hibernate.database.WorkType">
+                <column name="WORK_TYPE_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="registrationAlertHistories" inverse="true">
+            <key>
+                <column name="REG_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.dutyroster.hibernate.database.RegistrationAlertHistory" />
+        </set>
+        <set name="registrationStaffAvailabilities" inverse="true">
+            <key>
+                <column name="REG_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.dutyroster.hibernate.database.RegistrationStaffAvailability" />
+        </set>
+        <set name="registrationStaffs" inverse="true">
+            <key>
+                <column name="REG_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.dutyroster.hibernate.database.RegistrationStaff" />
+        </set>
+        <set name="registrationStaffCats" inverse="true">
+            <key>
+                <column name="REG_ID" not-null="true" />
+            </key>
+            <one-to-many class="org.dutyroster.hibernate.database.RegistrationStaffCat" />
+        </set>
+    </class>
+</hibernate-mapping>

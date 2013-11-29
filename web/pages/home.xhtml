@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"    
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>JSF Tutorial!</title>
+    </head>
+    <h:body>
+        <h2>h::selectOneMenu example</h2>
+        <hr />
+        <h:form>
+            <h3>Combo Box</h3> 
+            <h:selectOneMenu value="#{userData.data}">
+                <f:selectItem itemValue="1" itemLabel="Item 1" />
+                <f:selectItem itemValue="2" itemLabel="Item 2" />
+                <f:selectItem itemValue="3" itemLabel="Item 3" />
+                <f:selectItem itemValue="4" itemLabel="Item 4" />
+                <f:selectItem itemValue="5" itemLabel="Item 5" />				
+            </h:selectOneMenu>	
+            <h:commandButton value="Submit" action="pages/result" />
+        </h:form> 		
+    </h:body>
+</html> 

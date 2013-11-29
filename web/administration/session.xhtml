@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>:: Administration - Session Details :: Online Duty Roster Manager</title>
+        <link href="#{facesContext.externalContext.requestContextPath}/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/menu/side/side_menu.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td height="167" valign="top" class="header"><table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="166">&nbsp;</td>
+                            <td width="166">&nbsp;</td>
+                            <td width="166">&nbsp;</td>
+                            <td width="166">&nbsp;</td>
+                            <td width="285">&nbsp;</td>
+                            <td width="51">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="opacityimage">
+                                    <tr>
+                                        <td width="36%">&nbsp;</td>
+                                        <td width="31%"><div align="right"><img src="#{facesContext.externalContext.requestContextPath}/images/home.png" width="44" height="38" /></div></td>
+                                        <td width="33%"><div align="right"><img src="#{facesContext.externalContext.requestContextPath}/images/help.png" width="37" height="35" /></div></td>
+                                    </tr>
+                                </table></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td align="center">
+                                <h:form> 
+                                    <h:outputLabel for="#{user.userName}" value="Welcome #{user.userName}" styleClass="txt_tahoma_12_white"/> 
+                                </h:form></td>
+                            <td><h:form> 
+                                    <h:commandLink action="#{sessionDetails.logout}" styleClass="txt_tahoma_12_blue" value="Logout"/>
+                                </h:form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table></td>
+            </tr>
+            <tr>
+                <td><table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="195">&nbsp;</td>
+                            <td width="791">&nbsp;</td>
+                            <td width="14">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><div class="arrowlistmenu" align="left">
+                                    <h3 class="menuheader expandable">+&nbsp;&nbsp;Registration</h3>
+                                    <ul class="categoryitems">
+                                        <li><a href="add_new_project.php">&raquo;&nbsp;&nbsp;User Participation</a></li>
+                                        <li><a href="view_project.php">&raquo;&nbsp;&nbsp;View Details</a></li>
+                                    </ul>
+
+                                    <h3 class="menuheader expandable">+&nbsp;&nbsp;Pre-Orientation</h3>
+                                    <ul class="categoryitems">
+                                        <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;Pre-Orientation Detail</a></li>
+                                        <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;Approval</a></li>
+                                        <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;View Detail</a></li>
+                                    </ul>
+
+                                    <h3 class="menuheader expandable">+&nbsp;&nbsp;Learning to Learn</h3>
+                                    <ul class="categoryitems">
+                                        <li></li>
+                                        <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;User Participation</a></li>
+                                        <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;View Detail</a></li>
+                                    </ul>
+
+                                    <h3 class="menuheader expandable">+&nbsp;&nbsp;Administration</h3>
+                                    <ul class="categoryitems" >
+                                        <li><a href="../administration/department.jsf">&raquo;&nbsp;&nbsp;Department </a></li>
+                                        <li><a href="../administration/center.jsf">&raquo;&nbsp;&nbsp;Center</a></li>
+                                        <li><a href="../administration/session.jsf">&raquo;&nbsp;&nbsp;Session </a></li>
+                                        <li><a href="../administration/workstation.jsf">&raquo;&nbsp;&nbsp;Workstation </a></li>
+                                        <li><a href="../administration/registrationType.jsf">&raquo;&nbsp;&nbsp;Registration Type</a></li>
+                                        <li><a href="../administration/workType.jsf">&raquo;&nbsp;&nbsp;Work Type</a></li>
+                                        <li><a href="../administration/dayType.jsf">&raquo;&nbsp;&nbsp;Day Type</a></li>
+                                        <li><a href="../administration/holiday.jsf">&raquo;&nbsp;&nbsp;Holiday</a></li>
+                                        <li><a href="../administration/language.jsf">&raquo;&nbsp;&nbsp;Language</a></li>
+                                        <li><a href="../administration/userRole.jsf">&raquo;&nbsp;&nbsp;User Role</a></li>
+                                        <li><a href="../administration/staffcategory.jsf">&raquo;&nbsp;&nbsp;Staff Category</a></li>
+                                        <li><a href="../administration/program.jsf">&raquo;&nbsp;&nbsp;Program</a></li>
+                                        <li><a href="../administration/alert.jsf">&raquo;&nbsp;&nbsp;Alert</a></li>
+                                        <li><a href="../administration/staffMember.jsf">&raquo;&nbsp;Staff Member</a></li>
+                                        <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;Create Account</a></li>
+                                        <li><a href="../administration/schedule.jsf">&raquo;&nbsp;Schedule</a></li>
+                                    </ul>
+
+                                    <h3 class="menuheader expandable">+&nbsp;&nbsp;Report</h3>
+                                    <ul class="categoryitems">
+                                        <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;</a></li>
+                                        <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;</a></li>
+                                        <li><a href="add_sub_project.php">&raquo;&nbsp;&nbsp;</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td valign="top" width="100%">
+                                <h:panelGrid width="100%">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_rounded-corners">
+                                        <tr>
+                                            <td height="50" colspan="3" class="header_bg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span class="txt_tahoma_14_black">
+                                                    <strong> Administration &gt;&gt; Session</strong>
+                                                </span></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="2%" bgcolor="#ffffe7">&nbsp;</td>
+                                            <td width="97%" bgcolor="#ffffe7">&nbsp;</td>
+                                            <td width="1%" bgcolor="#ffffe7">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#ffffe7">&nbsp;</td>
+                                            <td bgcolor="#ffffe7">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <h:form id="frmInputs">
+                                                        <h:panelGrid  id="panel">
+                                                            <p:row>
+                                                                <tr>
+                                                                    <td width="20%">&nbsp;</td>
+                                                                    <td width="3%">&nbsp;</td>
+                                                                    <td width="37%">&nbsp;</td>
+                                                                    <td width="20%">&nbsp;</td>
+                                                                    <td width="20%">&nbsp;</td>
+                                                                </tr>
+                                                            </p:row>
+                                                            <p:row>       
+                                                                <tr>
+                                                                    <td class="txt_tahoma_12_black"><h:outputLabel for="#{sessionDetails.sessionId}" value="Session ID"/></td>
+                                                                    <td class="txt_tahoma_12_black">:</td>
+                                                                    <td class="txt_tahoma_12_black"><p:inputText id="sessionId" value="#{sessionDetails.sessionId}" label="Session ID" styleClass="txt_box_rounded-corners" style="width:350px;"></p:inputText>
+                                                                    </td>
+                                                                    <td><h:form>
+                                                                            <!--<p:commandLink onclick="searchDialog.show()" title="Enter Search String:">  
+                                                                                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" value="Search"/>    
+                                                                                </p:commandLink>
+                                                                            -->
+                                                                            <p:dialog width="500" header="Enter Search Criteria" widgetVar="searchDialog" modal="true">  
+                                                                                <p:outputPanel id="inputs" style="text-align:center;">  
+                                                                                    <h:panelGrid  columns="2" cellpadding="5">   
+                                                                                        <h:outputLabel value="Session Description :" />  
+                                                                                        <h:inputText id="sname" value="#{sessionDetails.filterText}" styleClass="txt_box_rounded-corners" />
+                                                                                        <div align="center">
+                                                                                            <h:commandButton type="submit" value="Search" action="#{sessionDetails.searchSessionInfo}" styleClass="blue-button" onclick="searchDialog.close()"/>
+                                                                                        </div>
+                                                                                    </h:panelGrid>  
+                                                                                </p:outputPanel>  
+                                                                            </p:dialog> 
+                                                                        </h:form></td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row>
+                                                            <p:row>       
+                                                                <tr>
+                                                                    <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                    <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row> 
+                                                            <p:row>    
+                                                                <tr>
+                                                                    <td class="txt_tahoma_12_black"><h:outputLabel for="#{sessionDetails.sessionDesc}" value="Session Description"/></td>
+                                                                    <td class="txt_tahoma_12_black">:</td>
+                                                                    <td class="txt_tahoma_12_black"><p:inputText id="sessionDesc" value="#{sessionDetails.sessionDesc}" label="Session Description" styleClass="txt_box_rounded-corners" style="width:350px;"></p:inputText></td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row> 
+                                                            <p:row>    
+                                                                <tr>
+                                                                    <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                    <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row>
+                                                            <p:row>   
+                                                                <tr>
+                                                                    <td class="txt_tahoma_12_black"><h:outputLabel for="#{sessionDetails.fromTime}" value="From Time"/></td>
+                                                                    <td class="txt_tahoma_12_black">:</td>
+                                                                    <td class="txt_tahoma_12_black"><p:inputText id="fromTime" value="#{sessionDetails.fromTime}" label="From Time" styleClass="txt_box_rounded-corners" style="width:350px;"></p:inputText></td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row>
+                                                            <p:row>     
+                                                                <tr>
+                                                                    <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                    <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row>
+                                                            <p:row>     
+                                                                <tr>
+                                                                    <td class="txt_tahoma_12_black"><h:outputLabel for="#{sessionDetails.toTime}" value="To Time"/></td>
+                                                                    <td class="txt_tahoma_12_black">:</td>
+                                                                    <td><p:inputText id="toTime" value="#{sessionDetails.toTime}" label="To Time" styleClass="txt_box_rounded-corners" style="width:350px;"></p:inputText></td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row>
+                                                            <p:row>     
+                                                                <tr>
+                                                                    <td class="txt_tahoma_12_black" colspan="4"><p:messages id="sessionInfoMessage" globalOnly="false" showDetail="true" showSummary="true" /> </td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row>
+                                                            <p:row>      
+                                                                <tr>
+                                                                    <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                    <td class="txt_tahoma_12_black">&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row> 
+                                                            <p:row>  
+                                                                <tr>
+                                                                    <td colspan="5">
+                                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                            <tr>
+                                                                                <td width="25">&nbsp;</td>
+                                                                                <td><div align="center"></div></td>
+                                                                                <td><h:commandButton type="submit" value="New" action="#{sessionDetails.newSessionInfo}" styleClass="blue-button"  /></td>
+                                                                                <td><div align="center"></div></td>
+                                                                                <td><h:commandButton type="submit" value="Update" action="#{sessionDetails.editSessionInfo}" styleClass="blue-button"  /></td>
+                                                                                <td><div align="center"></div></td>
+                                                                                <td><h:commandButton type="submit" value="Submit" action="#{sessionDetails.addSessionInfo}" styleClass="blue-button"  /></td>
+                                                                                <td><div align="center"></div></td>
+                                                                                <td><h:commandButton type="submit" value="Delete" action="#{sessionDetails.deleteSessionInfo}" styleClass="blue-button"  /></td>
+                                                                                <td><div align="center"></div></td>
+                                                                                <td><h:commandButton type="reset" value="Clear" action="#{sessionDetails.resetSessionInfo}" styleClass="blue-button"  /></td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </p:row> 
+                                                            <p:row>   
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                            </p:row> 
+                                                        </h:panelGrid>
+                                                    </h:form>   
+                                                    <tr>
+                                                        <td colspan="4" align="center" width="90%">
+                                                            <h:form id="frmSearch">
+                                                                <p:dataTable id="dtsessions" var="SessionInfos" value="#{sessionDetails.sessioninfos}" selection="#{sessionDetails.selected}" selectionMode="single" paginator="true" 
+                                                                             rows="5" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15" styleClass="header_bg"> 
+                                                                    <f:facet name="header">
+                                                                        <p:commandButton value="Select to Edit/Delete"  update=":frmInputs:panel" image="ui-icon ui-icon-search" action="#{sessionDetails.selectedSessionInfo}" styleClass="blue-button"/>  							
+                                                                    </f:facet>
+                                                                    <p:column headerText="Session ID" style="width:100px; align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                        <h:outputText value="#{SessionInfos.sessionId}"/>  
+                                                                    </p:column>  
+
+                                                                    <p:column headerText="Session Description" style="width:300px;align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                        <h:outputText value="#{SessionInfos.sessionDesc}" />  
+                                                                    </p:column>  
+
+                                                                    <p:column headerText="From Time" style="width:300px;align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                        <h:outputText value="#{SessionInfos.fromTime}" />  
+                                                                    </p:column>
+
+                                                                    <p:column headerText="To Time" style="width:300px;align:center;height:16px;border:thin;border-style:solid;border-color:#b9b9b9; font-family:Tahoma; font-size:12px;">  
+                                                                        <h:outputText value="#{SessionInfos.toTime}" />  
+                                                                    </p:column>
+                                                                    <f:facet name="footer">
+                                                                        <p:commandButton value="Select to Edit/Delete" update=":frmInputs:panel" image="ui-icon ui-icon-search" action="#{sessionDetails.selectedSessionInfo}" styleClass="blue-button"/>  							
+                                                                    </f:facet>
+                                                                </p:dataTable>
+                                                            </h:form>
+                                                        </td>    
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td bgcolor="#ffffe7">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#ffffe7">&nbsp;</td>
+                                            <td bgcolor="#ffffe7">&nbsp;</td>
+                                            <td bgcolor="#ffffe7">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </h:panelGrid>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table></td>
+            </tr>
+            <tr>
+                <td height="40" align="center" bgcolor="#efefef">copy right&#169; 2013 Open University of Sri Lanka(OUSL). All Rights Reserved.</td>
+            </tr>
+        </table>
+
+    </h:body>
+</html>
+
